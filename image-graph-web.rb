@@ -45,7 +45,7 @@ class Docker::Image
   end
 
   def tags
-    info['RepoTags'].reject { |t| t == '<none>:<none>' }.join(', ')
+    info['RepoTags'].reject { |t| t == '<none>:<none>' }.sort.join(', ')
   end
 
   def cmd
