@@ -2,7 +2,7 @@ FROM centurylink/ruby-base:2.1.2
 
 MAINTAINER CenturyLink Labs <clt-labs-futuretech@centurylink.com>
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y graphviz
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y graphviz
 RUN gem install docker-api sinatra
 
 ADD . /usr/src/app/
