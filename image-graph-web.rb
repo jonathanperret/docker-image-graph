@@ -11,7 +11,7 @@ end
 get '/images.json' do
 
   Docker::Image.all(all: 1).map do |image|
-    label = "#{image.short_id} &mdash; #{image.size} MB<span class=\"tags\">#{image.tags}</span>"
+    label = "#{image.short_id} &mdash; #{image.size} MB<span class=\"tags\">#{image.tags}</span><span>#{image.cmd}</span>"
 
     [ { v: image.id, f: label }, image.parent_id, image.cmd, ]
   end.to_json
